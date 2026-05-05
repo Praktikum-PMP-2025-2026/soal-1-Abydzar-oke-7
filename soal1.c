@@ -38,7 +38,7 @@
  int main() {
     Node* data = NULL; //dalam stack
     char input[999];
-    int valid = 1;
+    int valid;
 
     scanf("%s", input);
     for(int i=0; i<strlen(input); i++){
@@ -51,6 +51,8 @@
             if ((dat == ')' && buka_kurung != '(') || (dat == ']' && buka_kurung != '[') || (dat == '}' && buka_kurung != '{')){
                 valid = 0;
                 break;
+            } else {
+                valid = 1;
             }
         }
     }
@@ -59,7 +61,7 @@
         valid = 0;
     }
 
-    if (valid){
+    if (valid == 1){
         printf("VALID");
     } else{
         printf("INVALID");
