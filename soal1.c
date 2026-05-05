@@ -27,6 +27,7 @@
     if (*head == NULL){
         return '\0';
     }
+
     Node* temp = *head;
     char x = temp->data;
     *head = (*head)->next;
@@ -43,21 +44,21 @@
     for(int i=0; i<strlen(input); i++){
         char dat = input[i];
 
-        if(dat == '(' || '[' || '{'){
+        if(dat == '(' || dat == '[' || dat == '{'){
             push(&data, dat);
-        } else if(dat == ')' || ']' || '}'){
+        } else if(dat == ')' || dat == ']' || dat == '}'){
             char buka_kurung = pop(&data);
-            if ((dat == ')' && buka_kurung != '(') || (dat == ']' && buka_kurung != '[') || (dat == '}' && buka_kurung =! '{')){
+            if ((dat == ')' && buka_kurung != '(') || (dat == ']' && buka_kurung != '[') || (dat == '}' && buka_kurung != '{')){
                 valid = 0;
                 break;
             }
         }
 
-        if (data == NULL){
-            printf("VALID");
+        if (data != NULL){
+            valid = 0;
         }
 
-        if (valid = 1){
+        if (valid){
             printf("VALID");
         } else{
             printf("INVALID");
@@ -65,9 +66,5 @@
 
         return 0;
     }
-
-
-
-
-  
+    
  }
