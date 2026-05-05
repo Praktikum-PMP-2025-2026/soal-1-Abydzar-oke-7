@@ -38,7 +38,7 @@
  int main() {
     Node* data = NULL; //dalam stack
     char input[999];
-    int valid;
+    int valid = 1;
 
     scanf("%s", input);
     for(int i=0; i<strlen(input); i++){
@@ -53,18 +53,16 @@
                 break;
             }
         }
-
-        if (data != NULL){
-            valid = 0;
-        }
-
-        if (valid){
-            printf("VALID");
-        } else{
-            printf("INVALID");
-        }
-
-        return 0;
     }
-    
+
+    if (data != NULL){
+        valid = 0;
+    }
+
+    if (valid){
+        printf("VALID");
+    } else{
+        printf("INVALID");
+    }
+    return 0;
  }
